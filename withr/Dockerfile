@@ -1,4 +1,4 @@
-FROM davismcc/pipelines
+FROM davismcc/pipelines:master
 
 LABEL authors="davis@ebi.ac.uk" \
     description="Docker image containing all requirements for HipSci fibro pipeline with R and necessary packages (originally developed at SciLifeLabs and adapted by Vlad Kiselev)"
