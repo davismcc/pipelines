@@ -12,15 +12,19 @@ RUN curl -fsSL https://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o /opt/R-
     make install && \
     rm /opt/R-3.4.3.tar.gz
 
-# Install R Packages v2
+# install tidyverse and similar packages
 RUN mkdir -p /usr/local/lib/R/site-library
-RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages1.r && \
-    echo 'biocLite()' >> /opt/packages1.r && \
-    echo 'biocLite(c("adegenet", "apcluster", "batchtools", "bayesplot", "beachmat", "blogdown", "bookdown", "Canopy", "clusterExperiment", "clustermq", "coda", "cowplot", "d3heatmap", "data.table", "DDRTree", "destiny", "devtools", "DiagrammeR", "docopt", "doParallel", "dplyr", "DT", "dtplyr", "dupRadar", "dynamicTreeCut", "e1071", "edgeR", "future", "future.batchtools", "flexmix", "formatR", "fpc", "GenomicRanges", "GGally", "ggbeeswarm", "ggdendro", "ggmcmc", "ggpubr", "ggrepel", "ggridges", "ggsci", "ggthemes", "ggtree", "glmnet", "gdata", "gplots", "GO.db", "goseq", "greta", "gtools", "keras", "knitr", "lattice", "latticeExtra", "limma", "lintr", "lme4", "markdown", "MAST", "Matrix", "MatrixModels", "matrixStats", "microbenchmark", "monocle", "MultiAssayExperiment", "mvoutlier", "NMF", "org.Hs.eg.db", "org.Mm.eg.db", "packrat", "pcaMethods", "pheatmap", "pmclust", "preprocesCore", "pryr", "RColorBrewer", "rhdf5", "roxygen2", "rprojroot", "Rsamtools", "Rsubread", "Rtsne", "RUVseq", "SC3", "scales", "scater", "scfind", "scmap", "scone", "scran", "Seurat", "slalom", "snpStats", "superheat", "tensorflow", "testthat", "tfestimators", "tidyverse", "tufte", "tximport", "UpSetR", "variancePartition", "VariantAnnotation", "vcfR", "vegan", "VGAM", "viridis", "wesanderson", "xtable", "zinbwave"))' >> /opt/packages1.r
-RUN echo 'devtools::install_github("kieranrcampbell/ouija")' > /opt/packages2.r && \
-    echo 'install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))' >> /opt/packages2.r && \
-    echo 'greta::install_tensorflow()'  >> /opt/packages2.r
-RUN Rscript /opt/packages1.r
-RUN Rscript /opt/packages2.r
+RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages.r && \
+    echo 'biocLite(c("tidyverse", "apcluster", "batchtools", "bayesplot", "blogdown", "bookdown", "clustermq", "coda", "cowplot", "d3heatmap", "data.table", "devtools", "docopt", "DT", "dupRadar", "dynamicTreeCut", "e1071", "future", "future.batchtools", "flexmix", "formatR", "fpc", "GGally", "ggbeeswarm", "ggdendro", "ggmcmc", "ggpubr", "ggrepel", "ggridges", "ggsci", "ggthemes", "ggtree", "glmnet", "gdata", "gplots", "gtools", "keras", "knitr", "lattice", "latticeExtra", "lintr", "lme4", "markdown", "Matrix", "MatrixModels", "matrixStats", "microbenchmark", "mvoutlier", "NMF", "packrat", "pmclust", "pryr", "RColorBrewer", "roxygen2", "rprojroot", "scales", "superheat", "tensorflow", "testthat", "tufte", "UpSetR", "VGAM", "viridis", "wesanderson", "xtable"))' >> /opt/packages.r
+RUN Rscript /opt/packages.r
+
+# Install R Packages for bioinformatics
+RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages.r && \
+    echo 'biocLite()' >> /opt/packages.r && \
+    echo 'biocLite(c("adegenet", "beachmat", "Canopy", "clusterExperiment", "DDRTree", "destiny", "DiagrammeR", "edgeR", "GenomicRanges", "GO.db", "goseq", "greta", "limma", "MAST", "monocle", "MultiAssayExperiment", "org.Hs.eg.db", "org.Mm.eg.db", "pcaMethods", "pheatmap", "preprocesCore", "rhdf5", "Rsamtools", "Rsubread", "Rtsne", "RUVseq", "SC3", "scater", "scfind", "scmap", "scone", "scran", "Seurat", "slalom", "snpStats", "tximport", "UpSetR", "variancePartition", "VariantAnnotation", "vcfR", "vegan", "zinbwave"))' >> /opt/packages.r
+RUN echo 'devtools::install_github("kieranrcampbell/ouija")' > /opt/packages.r && \
+    echo 'install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))' >> /opt/packages.r && \
+    echo 'greta::install_tensorflow()'  >> /opt/packages.r
+RUN Rscript /opt/packages.r
 
 
