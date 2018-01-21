@@ -14,8 +14,8 @@ RUN curl -fsSL https://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o /opt/R-
 
 # Install R Packages v2
 RUN mkdir -p /usr/local/lib/R/site-library
-RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages.r && \
-    echo 'biocLite()' >> /opt/packages.r && \
+RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages1.r && \
+    echo 'biocLite()' >> /opt/packages1.r && \
     echo 'biocLite(c("adegenet", "apcluster", "batchtools", "bayesplot", "beachmat", "blogdown", "bookdown", "Canopy", "clusterExperiment", "clustermq", "coda", "cowplot", "d3heatmap", "data.table", "DDRTree", "destiny", "devtools", "DiagrammeR", "docopt", "doParallel", "dplyr", "DT", "dtplyr", "dupRadar", "dynamicTreeCut", "e1071", "edgeR", "future", "future.batchtools", "flexmix", "formatR", "fpc", "GenomicRanges", "GGally", "ggbeeswarm", "ggdendro", "ggmcmc", "ggpubr", "ggrepel", "ggridges", "ggsci", "ggthemes", "ggtree", "glmnet", "gdata", "gplots", "GO.db", "goseq", "greta", "gtools", "keras", "knitr", "lattice", "latticeExtra", "limma", "lintr", "lme4", "markdown", "MAST", "Matrix", "MatrixModels", "matrixStats", "microbenchmark", "monocle", "MultiAssayExperiment", "mvoutlier", "NMF", "org.Hs.eg.db", "org.Mm.eg.db", "packrat", "pcaMethods", "pheatmap", "pmclust", "preprocesCore", "pryr", "RColorBrewer", "rhdf5", "roxygen2", "rprojroot", "Rsamtools", "Rsubread", "Rtsne", "RUVseq", "SC3", "scales", "scater", "scfind", "scmap", "scone", "scran", "Seurat", "slalom", "snpStats", "superheat", "tensorflow", "testthat", "tfestimators", "tidyverse", "tufte", "tximport", "UpSetR", "variancePartition", "VariantAnnotation", "vcfR", "vegan", "VGAM", "viridis", "wesanderson", "xtable", "zinbwave"))' >> /opt/packages1.r
 RUN echo 'devtools::install_github("kieranrcampbell/ouija")' > /opt/packages2.r && \
     echo 'install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))' >> /opt/packages2.r && \
