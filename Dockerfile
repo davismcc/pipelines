@@ -1,7 +1,7 @@
 FROM openjdk:8
 
 LABEL authors="davis@ebi.ac.uk" \
-    description="Docker image containing all requirements for HipSci fibro pipeline except for R and packages (originally developed at SciLifeLabs and adapted by Vlad Kiselev)"
+    description="Docker image containing commandline tools for HipSci fibro pipeline (originally developed at SciLifeLabs and adapted by Vlad Kiselev)"
 
 # Install container-wide requrements gcc, pip, zlib, libssl, make, libncurses, fortran77, g++, R
 RUN apt-get update && \
