@@ -4,6 +4,7 @@ LABEL authors="davis@ebi.ac.uk" \
     description="Docker image containing all requirements for HipSci fibro pipeline with R and necessary packages (originally developed at SciLifeLabs and adapted by Vlad Kiselev)"
 
 # Install R Packages for bioinformatics
+RUN mkdir -p /usr/local/lib/R/site-library
 RUN echo 'source("https://bioconductor.org/biocLite.R")' > /opt/packages.r && \
     echo 'r <- getOption("repos"); r["CRAN"] <- "https://cran.ma.imperial.ac.uk/"; options(repos = r)' >> /opt/packages.r && \
     echo 'biocLite(ask = FALSE)' >> /opt/packages.r && \
