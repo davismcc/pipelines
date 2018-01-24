@@ -1,3 +1,4 @@
+source("https://bioconductor.org/biocLite.R")
 library(BiocInstaller) # shouldn't be necessary
 
 
@@ -46,7 +47,6 @@ pkgs <- c(
   "mvoutlier",
   "NMF",
   "packrat",
-  "pmclust",
   "pryr",
   "RColorBrewer",
   "roxygen2",

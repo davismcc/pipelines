@@ -37,6 +37,8 @@ RUN apt-get update && \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /usr/local/lib/R/site-library
+
 ADD install.R /tmp/
 
 RUN R -f /tmp/install.R
