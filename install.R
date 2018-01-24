@@ -14,7 +14,6 @@ sc_pkgs <- c(
   "edgeR",
   "GO.db",
   "goseq",
-  "greta",
   "limma",
   "MAST",
   "monocle",
@@ -55,7 +54,6 @@ biocLite(pkgs_to_install)
 
 devtools::install_github("kieranrcampbell/ouija")
 install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
-greta::install_tensorflow()
 
 ## just in case there were warnings, we want to see them
 ## without having to scroll up:
