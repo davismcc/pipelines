@@ -29,6 +29,8 @@ RUN apt-get update && \
         make \
         pandoc \
         python-dev \
+        python-pip \
+        python3-dev \
         python3-pip \
         python3-tk \
         software-properties-common \
@@ -37,9 +39,9 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pip
-RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o /opt/get-pip.py && \
-    python /opt/get-pip.py && \
-    rm /opt/get-pip.py
+# RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o /opt/get-pip.py && \
+#     python /opt/get-pip.py && \
+#     rm /opt/get-pip.py
 
 # Install FastQC
 RUN curl -fsSL http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip -o /opt/fastqc_v0.11.5.zip && \
@@ -58,8 +60,11 @@ RUN mkdir /opt/bedops && \
 # Install cutadapt
 RUN pip install cutadapt
 
+# Install tensorflow
+RUN pip install tensorflow
+
 # # Install snakemake
-# RUN pip3 install snakemake
+RUN pip3 install snakemake
 
 # Install TrimGalore
 RUN mkdir /opt/TrimGalore && \
