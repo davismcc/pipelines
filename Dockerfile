@@ -40,10 +40,10 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install tensorflow
-pip install tensorflow
+RUN pip install tensorflow
 
 # Install snakemake
-pip3 install snakemake
+RUN pip3 install snakemake
 
 RUN mkdir -p /usr/local/lib/R/site-library
 
