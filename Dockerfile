@@ -39,9 +39,9 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pip
-# RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o /opt/get-pip.py && \
-#     python /opt/get-pip.py && \
-#     rm /opt/get-pip.py
+RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o /opt/get-pip.py && \
+    python /opt/get-pip.py && \
+    rm /opt/get-pip.py
 
 # Install FastQC
 RUN curl -fsSL http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip -o /opt/fastqc_v0.11.5.zip && \
