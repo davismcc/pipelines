@@ -29,13 +29,21 @@ RUN apt-get update && \
         libzmq3-dev \
         make \
         pandoc \
+        pandoc-citeproc \
         python-dev \
+        python-pip \
+        python3-dev \
         python3-pip \
         python3-tk \
-        software-properties-common \
         wget \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Install tensorflow
+pip install tensorflow
+
+# Install snakemake
+pip3 install snakemake
 
 RUN mkdir -p /usr/local/lib/R/site-library
 
