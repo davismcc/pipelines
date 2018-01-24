@@ -1,6 +1,8 @@
 ## install script for R pkgs
+source("https://bioconductor.org/biocLite.R")
 
 library(BiocInstaller) # shouldn't be necessary
+biocLite()
 
 
 sc_pkgs <- c(
@@ -42,70 +44,7 @@ sc_pkgs <- c(
   "zinbwave"
 )
 
-gen_pkgs <- c(
-  "tidyverse",
-  "apcluster",
-  "batchtools",
-  "bayesplot",
-  "blogdown",
-  "bookdown",
-  "clustermq",
-  "cowplot",
-  "d3heatmap",
-  "data.table",
-  "devtools",
-  "docopt",
-  "DT",
-  "dynamicTreeCut",
-  "e1071",
-  "future",
-  "future.batchtools",
-  "flexmix",
-  "formatR",
-  "fpc",
-  "GGally",
-  "ggbeeswarm",
-  "ggdendro",
-  "ggmcmc",
-  "ggpubr",
-  "ggrepel",
-  "ggridges",
-  "ggsci",
-  "ggthemes",
-  "ggtree",
-  "glmnet",
-  "gdata",
-  "gplots",
-  "gtools",
-  "keras",
-  "knitr",
-  "lattice",
-  "latticeExtra",
-  "lintr",
-  "lme4",
-  "markdown",
-  "Matrix",
-  "MatrixModels",
-  "matrixStats",
-  "microbenchmark",
-  "mvoutlier",
-  "NMF",
-  "packrat",
-  "pryr",
-  "RColorBrewer",
-  "roxygen2",
-  "rprojroot",
-  "scales",
-  "superheat",
-  "tensorflow",
-  "testthat",
-  "tufte",
-  "UpSetR",
-  "viridis",
-  "wesanderson",
-  "xtable")
-
-pkgs <- c(gen_pkgs, sc_pkgs)
+pkgs <- c(sc_pkgs)
 
 ap.db <- available.packages(contrib.url(biocinstallRepos()))
 ap <- rownames(ap.db)

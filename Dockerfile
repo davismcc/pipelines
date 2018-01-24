@@ -1,4 +1,4 @@
-FROM bioconductor/release_base2
+FROM quay.io/davismcc/pipelines:r-tidy
 
 MAINTAINER davis@ebi.ac.uk
 LABEL authors="davis@ebi.ac.uk" \
@@ -33,6 +33,8 @@ RUN apt-get update && \
         wget \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p  /usr/local/lib/R/site-library
 
 ADD install.R /tmp/
 
