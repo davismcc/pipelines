@@ -63,8 +63,8 @@ RUN pip install cutadapt
 # Install tensorflow
 RUN pip install tensorflow
 
-# # Install snakemake
-RUN pip3 install snakemake
+# Install snakemake
+#RUN pip3 install snakemake
 
 # Install TrimGalore
 RUN mkdir /opt/TrimGalore && \
