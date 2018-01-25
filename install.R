@@ -53,7 +53,6 @@ pkgs_to_install <- pkgs[pkgs %in% ap]
 biocLite(pkgs_to_install)
 
 devtools::install_github("kieranrcampbell/ouija")
-install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
 
 ## just in case there were warnings, we want to see them
 ## without having to scroll up:
