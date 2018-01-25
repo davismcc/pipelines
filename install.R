@@ -12,6 +12,7 @@ pkgs <- c(
   "d3heatmap",
   "data.table",
   "devtools",
+  "DiagrammeR",
   "docopt",
   "DT",
   "dynamicTreeCut",
@@ -35,6 +36,7 @@ pkgs <- c(
   "gdata",
   "gplots",
   "gtools",
+  "greta",
   "keras",
   "lattice",
   "latticeExtra",
@@ -69,6 +71,9 @@ ap <- rownames(ap.db)
 pkgs_to_install <- pkgs[pkgs %in% ap]
 
 biocLite(pkgs_to_install)
+install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
+greta::install_tensorflow()
+
 
 ## just in case there were warnings, we want to see them
 ## without having to scroll up:
