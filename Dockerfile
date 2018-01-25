@@ -44,6 +44,7 @@ RUN apt-get update && \
 
 
 # Install tensorflow
+RUN pip install virtualenv
 RUN pip install tensorflow
 
 # Install snakemake
