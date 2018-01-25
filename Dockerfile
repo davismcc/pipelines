@@ -33,17 +33,21 @@ RUN apt-get update && \
         python-dev \
         python-pip \
         python3-dev \
+        python3-docutils \
+        python3-flask \
         python3-pip \
+        python3-setuptools \
         python3-tk \
         wget \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Install tensorflow
 RUN pip install tensorflow
 
 # Install snakemake
-RUN pip3 install snakemake
+RUN easy_install3 snakemake
 
 RUN mkdir -p /usr/local/lib/R/site-library
 
