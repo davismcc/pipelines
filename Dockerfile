@@ -31,7 +31,10 @@ RUN apt-get update && \
         python-dev \
         python-pip \
         python3-dev \
+        python3-docutils \
+        python3-flask \
         python3-pip \
+        python3-setuptools \
         python3-tk \
         software-properties-common \
         wget \
@@ -64,7 +67,7 @@ RUN pip install cutadapt
 RUN pip install tensorflow
 
 # Install snakemake
-#RUN pip3 install snakemake
+RUN easy_install3 snakemake
 
 # Install TrimGalore
 RUN mkdir /opt/TrimGalore && \
