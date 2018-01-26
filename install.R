@@ -9,6 +9,7 @@ sc_pkgs <- c(
   "beachmat",
   "Canopy",
   "clusterExperiment",
+  "DESeq2",
   "destiny",
   "DiagrammeR",
   "edgeR",
@@ -37,6 +38,8 @@ sc_pkgs <- c(
   "Seurat",
   "slalom",
   "snpStats",
+  "sva",
+  "TSCAN",
   "tximport",
   "variancePartition",
   "vcfR",
@@ -53,6 +56,12 @@ pkgs_to_install <- pkgs[pkgs %in% ap]
 biocLite(pkgs_to_install)
 
 devtools::install_github("kieranrcampbell/ouija")
+devtools::install_github(c("hemberg-lab/scRNA.seq.funcs",
+                           "Vivianstats/scImpute",
+                           "theislab/kBET",
+                           "JustinaZ/pcaReduce",
+                           "tallulandrews/M3Drop",
+                           "jw156605/SLICER"))
 
 ## just in case there were warnings, we want to see them
 ## without having to scroll up:
